@@ -1,20 +1,22 @@
 import matplotlib.pyplot as plt
+from pixel_matrix import PixelMatrix
 
 def main():
-    x1 = 3
-    y1 = 2
-    x2 = 9
-    y2 = 4
+    pixelMatrix = PixelMatrix()
+    pixelMatrix.loadMatrix((20, 20))
 
-    pontos = rasteriza_reta(x1, y1, x2, y2)
-    xPoints = []
-    yPoints = []
+    x = [3,9]
+    y = [2,4]
+
+    pontos = rasteriza_reta(x[0], y[0], x[1], y[1])
+    pixelMatrix.pixels[3][2] = 255
     
-    for p in pontos:
-        xPoints.append(p[0])
-        yPoints.append(p[1])
-
-    plotPoints(xPoints, yPoints)
+    # for p in pontos:
+    #     pixelMatrix.pixels[p[1]][p[0]] = 255
+    #plotPoints(xPoints, yPoints)
+    pixelMatrix.showMatrix()
+ 
+   
 
 def plotPoints(x, y):
     fig = plt.figure()    
